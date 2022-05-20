@@ -1,9 +1,11 @@
 const WALLET_SERVICE_URL = "https://5d073b61fa00250014577c37.mockapi.io/wallet";
 //const WALLET_SERVICE_URL = "https://testapi.io/api/letuhuu/wallet";
 const MINER_POOL_URL = "https://eth.2miners.com/api/accounts/";
-const PRICE_SERVICE_URL =
-  "https://api.coingecko.com/api/v3/simple/price?vs_currencies=usd&ids=ethereum";
+//const PRICE_SERVICE_URL =
+//  "https://api.coingecko.com/api/v3/simple/price?vs_currencies=usd&ids=ethereum";
+  const PRICE_SERVICE_URL =  "https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD"
 const REWARD_SERVICE_URL = "https://5d073b61fa00250014577c37.mockapi.io/reward";
+const PRICE_SERVICE_API_KEY = "7c27660b903bfbbdf839cb1831998f2fa78b5ee701b165e12943a40c493024e7";
 /*const WALLETS = [
   {
     id: 1,
@@ -99,10 +101,10 @@ var vapp = new Vue({
   },
   methods: {
     getEthPrice: function () {
-      this.$http.get(PRICE_SERVICE_URL).then(
+      this.$http.get(PRICE_SERVICE_URL + "&api_key=" + PRICE_SERVICE_API_KEY).then(
         (response) => {
           let r = response.body;
-          this.price = r["ethereum"].usd;
+          this.price = r["USD"];//.usd;
           //console.log(this.price);
         },
         (response) => {
