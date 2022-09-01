@@ -98,6 +98,7 @@ var vapp = new Vue({
     miners: [],
     twallet: [],
     c: 0,
+    loadFailCounter: 0
   },
   methods: {
     getEthPrice: function () {
@@ -259,7 +260,7 @@ var vapp = new Vue({
               address: w.address,
               details: result,
             });
-            if (this.c == wallets.length - 1) {
+            if (this.c == wallets.length - 1 - this.loadFailCounter) {
               this.wallets = this.twallet.sort(this.compare);
               this.saveYesterdayReward();
               /* setTimeout(() => {
@@ -272,6 +273,7 @@ var vapp = new Vue({
             this.c++;
           },
           (response) => {
+            this.loadFailCounter ++;
             console.log(response);
           }
         );
