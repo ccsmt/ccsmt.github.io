@@ -235,6 +235,7 @@ var vapp = new Vue({
     loadMiners: function (wallets) {
       this.c = 0;
       this.twallet = [];
+      this.loadFailCounter = 0;
       //var self = this;
       wallets.forEach((w) => {
         this.$http.get(MINER_POOL_URL + w.address).then(
@@ -262,7 +263,8 @@ var vapp = new Vue({
             });
             if (this.c == wallets.length - 1 - this.loadFailCounter) {
               this.wallets = this.twallet.sort(this.compare);
-              this.saveYesterdayReward();
+              console.log(this.wallets.map(n=> {return n.details.workersTotal}))
+              //this.saveYesterdayReward();
               /* setTimeout(() => {
                                 let wallets = self.wallets;
                                 wallets.forEach(wallet => {
@@ -274,7 +276,7 @@ var vapp = new Vue({
           },
           (response) => {
             this.loadFailCounter ++;
-            console.log(response);
+            //console.log(response);
           }
         );
       });
