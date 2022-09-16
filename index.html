@@ -108,17 +108,8 @@
         CCSM Center
       </h4>
       <div class="form-check pl-0">
-        <input
-          id="autoUpdate"
-          type="checkbox"
-          checked
-          data-toggle="toggle"
-          data-width="70"
-          data-height="15"
-          data-onstyle="info"
-          data-style="ios"
-        />
-        <label for="stackedCheck1" class="form-check-label">Auto Update</label>
+        <input type="checkbox" id="chbxUseEthPrice" name="chbxUseEthPrice" v-model="useEthPrice" style="width:20px; height:20px">
+        <label for="chbxUseEthPrice"> Use ETH Price</label><br>
       </div>
       <div id="accordion">
         <div v-for="(w,i) in wallets" class="card margin-top">
@@ -256,7 +247,7 @@
                                   {{formatNumber(sw.reward/1000000000,5)}}
                                 </td>
                                 <td>
-                                  {{formatNumber(sw.reward/1000000000*price,2)}}
+                                  {{formatNumber(sw.reward/1000000000*getPrice,2)}}
                                 </td>
                               </tr>
                             </tbody>
@@ -343,6 +334,6 @@
       referrerpolicy="no-referrer"
     ></script>
     <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
-    <script src="assets/js/app.min.js?v=100922"></script>
+    <script src="assets/js/app.min.js?v=160922"></script>
   </body>
 </html>
