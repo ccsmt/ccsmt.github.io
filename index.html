@@ -90,14 +90,24 @@
       [v-cloak] {
         display: none;
       }
-      .toggle.ios,
+      .my-checkbox {
+        transform: scale(2);
+        margin-right: 11px;
+        margin-left: 6px;
+      }
+
+      .my-checkbox-x2 {
+        transform: scale(3);
+        margin: 40px 15px 0 0;
+      }
+      /* .toggle.ios,
       .toggle-on.ios,
       .toggle-off.ios {
         border-radius: 20px;
       }
       .toggle.ios .toggle-handle {
         border-radius: 20px;
-      }
+      } */
     </style>
     <script></script>
   </head>
@@ -108,8 +118,10 @@
         CCSM Center
       </h4>
       <div class="form-check pl-0">
-        <input type="checkbox" id="chbxUseEthPrice" name="chbxUseEthPrice" v-model="useEthPrice" style="width:20px; height:20px">
-        <label for="chbxUseEthPrice"> Use ETH Price</label><br>
+        <input id="chbxUseEthPrice" type="checkbox" class="my-checkbox" name="chbxUseEthPrice" v-model="useEthPrice" />
+        Use ETH Price
+        <!-- <input type="checkbox" id="chbxUseEthPrice" name="chbxUseEthPrice" v-model="useEthPrice" style="width:20px; height:20px">
+        <label for="chbxUseEthPrice"> Use ETH Price</label><br> -->
       </div>
       <div id="accordion">
         <div v-for="(w,i) in wallets" class="card margin-top">
